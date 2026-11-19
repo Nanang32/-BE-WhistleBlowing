@@ -1,0 +1,91 @@
+{
+  "info": {
+    "name": "Pengaduan Mahasiswa - NodeJS MySQL",
+    "description": "Input dan baca data JSON; Node.js + Express + MySQL, tanpa frontend.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "GET Semua Pengaduan",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/pengaduan"
+      }
+    },
+    {
+      "name": "GET Filter NIM",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/pengaduan?nim=20260001"
+      }
+    },
+    {
+      "name": "GET Detail ID 1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/api/pengaduan/1"
+      }
+    },
+    {
+      "name": "POST Tambah Pengaduan",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/pengaduan",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nama\": \"Andi Saputra\",\n  \"nim\": \"20260001\",\n  \"kategori\": \"Fasilitas\",\n  \"judul\": \"AC ruang kelas rusak\",\n  \"isi\": \"AC tidak dingin saat perkuliahan.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "PATCH Status / Tanggapan",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/api/pengaduan/1",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"Diproses\",\n  \"tanggapan\": \"Laporan diteruskan ke bagian sarana.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "DELETE Pengaduan ID 1",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{base_url}}/api/pengaduan/1"
+      }
+    }
+  ]
+}
